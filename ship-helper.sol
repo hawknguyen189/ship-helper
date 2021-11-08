@@ -1,6 +1,6 @@
 pragma solidity 0.8.7;
 
-
+// SPDX-License-Identifier: MIT
 
 // Part: asteroid_pool
 
@@ -27,7 +27,7 @@ contract ship_helper {
     function claimReward(uint256[] calldata _ids) external {
         uint claimable_reward;
         for (uint i = 0; i < _ids.length; i++) {
-            claimable_reward = _asteroid.getRewardOf(_ids[i])
+            claimable_reward = _asteroid.getRewardOf(_ids[i]);
             if(claimable_reward>0){
                 if (_ship.getApproved(_ids[i]) != address(this)) {
                     _ship.approve(address(this), _ids[i]);
